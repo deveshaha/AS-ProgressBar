@@ -112,15 +112,17 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         int jumpTime = 0;
 
-                        while(jumpTime < maxTime){
+                        while(jumpTime < maxTime) {
                             try {
                                 sleep(200);
+                                System.out.println("jumpTime: " + jumpTime);
                                 jumpTime += 5;
                                 progressDialog.setProgress(jumpTime);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
+                        progressDialog.dismiss();
                     }
                 };
                 thread.start();
